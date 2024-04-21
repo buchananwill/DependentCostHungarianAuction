@@ -137,10 +137,6 @@ public class FixedQueueAuctionHouse<T extends TaskSource<T,W>, W extends WorkerG
         WorkerGrouping<T,W> workerGrouping = assignment.workerGrouping();
         TaskSource<T,W> taskSource = assignment.task().getTaskSource();
         W unboxedWorkerGrouping = workerGrouping.unboxWorkerGrouping(assignment.task());
-        // Replaced type cast with unboxing.
-//        if (workerGrouping instanceof DomainProxy<T,W> domainProxy) {
-//            workerGrouping = domainProxy.getOptimalWorkerGrouping(assignment.task());
-//        }
         taskSource.recallWorkerGrouping(unboxedWorkerGrouping, assignment.task());
     }
 
