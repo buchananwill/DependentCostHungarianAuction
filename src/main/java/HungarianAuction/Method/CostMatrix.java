@@ -482,7 +482,6 @@ public class CostMatrix<T extends TaskSource<T, W>, W extends WorkerGrouping<T, 
             }
         }
 
-        // TODO This line changed
         return lowestUncrossedValue != Double.MAX_VALUE && anyFiniteValuesUncrossed;
     }
 
