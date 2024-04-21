@@ -47,9 +47,7 @@ public class TaskPool<T extends TaskSource<T,W>, W extends WorkerGrouping<T,W>> 
     }
 
     private void addToFirstListWithoutThisSource(TaskSource<T,W> source, TaskRequest<T,W> task, List<List<TaskRequest<T,W>>> listOfLists) {
-        int howManySubLists = listOfLists.size();
-        for (int subListIndex = 0; subListIndex < howManySubLists; subListIndex++) {
-            List<TaskRequest<T,W>> sublist = listOfLists.get(subListIndex);
+        for (List<TaskRequest<T, W>> sublist : listOfLists) {
             if (sublistDoesNotContainSource(sublist, source)) {
                 sublist.add(task);
                 return;

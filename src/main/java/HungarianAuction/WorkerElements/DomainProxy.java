@@ -25,8 +25,8 @@ public class DomainProxy<T extends TaskSource<T,W>, W extends WorkerGrouping<T,W
 
     private final int proxySize;
     private final Set<WorkerGrouping<T,W>> proxySet;
-    Map<TaskRequest<T,W>, WorkerGrouping<T,W>> optimalWorkerMap = new HashMap<>();
-    Map<TaskRequest<T,W>, TaskCost> bestCostMap = new HashMap<>();
+    private final Map<TaskRequest<T,W>, WorkerGrouping<T,W>> optimalWorkerMap = new HashMap<>();
+    private final Map<TaskRequest<T,W>, TaskCost> bestCostMap = new HashMap<>();
 
 
     public DomainProxy(Set<WorkerGrouping<T,W>> proxySet, int proxySize) {

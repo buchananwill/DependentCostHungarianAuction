@@ -85,7 +85,7 @@ public class TaskRequest<T extends TaskSource<T,W>, W extends WorkerGrouping<T,W
 
 
     public Map<WorkerGrouping<T,W>, TaskCost> getWorkerGroupingMap() {
-        return Collections.unmodifiableMap(new HashMap<>(mapWorkerGroupingTaskCost));
+        return Map.copyOf(mapWorkerGroupingTaskCost);
     }
 
     public void removeWorkerGroupingOffer(WorkerGrouping<T,W> tWorker) {

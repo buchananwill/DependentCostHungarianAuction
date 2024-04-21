@@ -17,7 +17,7 @@ public class WorkerDomain<T extends TaskSource<T,W>, W extends WorkerGrouping<T,
 
 
 
-    Map<Worker<T,W>, Set<WorkerGrouping<T,W>>> unitToWorkerGroupingMap = new HashMap<>();
+    final Map<Worker<T,W>, Set<WorkerGrouping<T,W>>> unitToWorkerGroupingMap = new HashMap<>();
 
 
     private final Set<WorkerGrouping<T,W>> setOfWorkerGroupings = new HashSet<>();

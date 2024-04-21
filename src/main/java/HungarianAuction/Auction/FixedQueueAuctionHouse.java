@@ -57,7 +57,7 @@ public class FixedQueueAuctionHouse<T extends TaskSource<T,W>, W extends WorkerG
             // TODO add an option to ignore domains entirely?
             if (unusedDomains != null) unusedDomainsInThisFactoryBatch.addAll(unusedDomains);
         }
-        WorkerPool<T,W> poolForThisAuction = null;
+        WorkerPool<T,W> poolForThisAuction;
 
         Map<WorkerDomain<T,W>, Set<WorkerGrouping<T,W>>> availableWorkerGroupings = workerPool.getAvailableWorkerGroupings(currentTokenSize, preMadeTaskBatch.getBatchSize(), unusedDomainsInThisFactoryBatch);
         if (useDomainProxies && availableWorkerGroupings != null && preMadeTaskBatch.getBatchSize() != 1) {
@@ -108,9 +108,7 @@ public class FixedQueueAuctionHouse<T extends TaskSource<T,W>, W extends WorkerG
         WorkerPool<T, W> workerPool = auction.getWorkerPool();
 
 //        Assign the winning workerGroupings.
-        winningAssignmentSet.forEach(assignment -> {
-                    FixedQueueAuctionHouse.confirmAssignment(workerPool, assignment);
-                }
+        winningAssignmentSet.forEach(assignment -> FixedQueueAuctionHouse.confirmAssignment(workerPool, assignment)
         );
 
         successfulAuctions.push(auction);
